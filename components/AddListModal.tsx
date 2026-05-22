@@ -8,7 +8,7 @@ import { useAppDispatch } from '../hooks/useAppDispatch';
 import { addList } from '../store/slices/listsSlice';
 import { Colors } from '../constants/colors';
 import { ShoppingList } from '../types';
-import { v4 as uuidv4 } from 'uuid';
+import * as Crypto from 'expo-crypto'
 
 const EMOJIS = ['🛒','🏠','🎄','💊','🏋️','🎁','🍕','📚','👗','🐾','🧹','💻'];
 
@@ -30,7 +30,7 @@ export default function AddListModal({ visible, onClose }: Props) {
     }
 
     const newList: ShoppingList = {
-      id: uuidv4(),
+      id: Crypto.randomUUID(),
       name: name.trim(),
       emoji: selectedEmoji,
       items: [],

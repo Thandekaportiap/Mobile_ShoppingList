@@ -8,7 +8,7 @@ import { useAppDispatch } from '../hooks/useAppDispatch';
 import { addItem, editItem } from '../store/slices/listsSlice';
 import { Colors } from '../constants/colors';
 import { Item } from '../types';
-import { v4 as uuidv4 } from 'uuid';
+import * as Crypto from 'expo-crypto'
 
 const CATEGORIES = [
   '🥦 Produce', '🥛 Dairy', '🥩 Meat', '🍞 Bakery',
@@ -77,7 +77,7 @@ export default function AddItemModal({
       }));
     } else {
       const newItem: Item = {
-        id: uuidv4(),
+        id: Crypto.randomUUID(),
         name: name.trim(),
         quantity: quantity.trim(),
         notes: notes.trim(),
