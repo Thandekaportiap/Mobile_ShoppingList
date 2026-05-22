@@ -48,6 +48,25 @@ const listsSlice = createSlice({
     loadLists: (_, action: PayloadAction<ShoppingList[]>) => {
       return action.payload;
     },
+
+    // Add inside reducers
+setReminder: (state, action: PayloadAction<{
+  id: string;
+  notificationId: string;
+  date: string;
+}>) => {
+  const list = state.find(l => l.id === action.payload.id);
+  if (list) {
+    list.reminder = {
+      notificationId: action.payload.notificationId,
+      date: action.payload.date,
+    };
+  }
+},
+clearReminder: (state, action: PayloadAction<string>) => {
+  const list = state.find(l => l.id === action.payload);
+  if (list) delete list.reminder;
+},
   },
 });
 
@@ -55,6 +74,7 @@ export const {
   addList, deleteList, editList,
   addItem, deleteItem, editItem,
   togglePurchased, loadLists,
+  setReminder, clearReminder,
 } = listsSlice.actions;
 
 export default listsSlice.reducer;

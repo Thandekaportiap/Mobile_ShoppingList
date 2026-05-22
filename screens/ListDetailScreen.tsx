@@ -9,6 +9,9 @@ import { Colors } from '../constants/colors';
 import { Item } from '../types';
 import ItemCard from '../components/ItemCard';
 import AddItemModal from '../components/AddItemModal';
+import ReminderModal from '../components/ReminderModal';
+
+
 
 export default function ListDetailScreen() {
   const route = useRoute<any>();
@@ -22,6 +25,7 @@ export default function ListDetailScreen() {
 
   const [modalVisible, setModalVisible] = useState(false);
   const [editingItem, setEditingItem] = useState<Item | null>(null);
+  const [reminderVisible, setReminderVisible] = useState(false);
 
   if (!list) return null;
 
@@ -41,14 +45,38 @@ export default function ListDetailScreen() {
     <SafeAreaView style={styles.container}>
 
       {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backBtn}>
-          <Text style={styles.backText}>← Back</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleDeleteList} style={styles.deleteBtn}>
-          <Text style={styles.deleteText}>🗑</Text>
-        </TouchableOpacity>
-      </View>
+     <View style={styles.header}>
+  <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backBtn}>
+    <Text style={styles.backText}>← Back</Text>
+  </TouchableOpacity>
+
+  {/* Both buttons on the right side */}
+  <View style={styles.headerButtons}>
+    <TouchableOpacity onPress={() => setReminderVisible(true)} style={styles.reminderBtn}>
+      <Text style={styles.reminderText}>{list.reminder ? '⏰' : '🔔'}</Text>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={handleDeleteList} style={styles.deleteBtn}>
+      <Text style={styles.deleteText}>🗑</Text>
+    </TouchableOpacity>
+  </View>
+</View>
+
+      <TouchableOpacity
+  onPress={() => setReminderVisible(true)}
+  style={styles.reminderBtn}
+>
+  <Text style={styles.reminderText}>
+    {list.reminder ? '⏰' : '🔔'}
+  </Text>
+</TouchableOpacity>
+
+// Add modal before closing SafeAreaView
+<ReminderModal
+  visible={reminderVisible}
+  list={list}
+  onClose={() => setReminderVisible(false)}
+/>
+
 
       {/* List Info */}
       <View style={styles.listInfo}>
@@ -224,4 +252,16 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins_800ExtraBold',
     letterSpacing: 0.5,
   },
+  reminderBtn: {
+  padding: 8,
+  marginRight: 8,
+},
+reminderText: {
+  fontSize: 20,
+},
+headerButtons: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  gap: 8,
+},
 });

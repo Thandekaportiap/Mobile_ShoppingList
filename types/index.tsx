@@ -14,6 +14,10 @@ export interface ShoppingList {
   emoji: string;
   items: Item[];
   createdAt: string;
+  reminder?: {               // ✅ optional
+    notificationId: string;
+    date: string;
+  };
 }
 
 export type RootState = {

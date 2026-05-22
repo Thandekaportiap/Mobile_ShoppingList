@@ -19,6 +19,8 @@ import {
 } from '@expo-google-fonts/poppins';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Crypto from 'expo-crypto';
+import { setupNotificationHandler } from './hooks/useNotifications';
+
 
 // Polyfill the global crypto object for uuid
 if (typeof global.crypto === 'undefined') {
@@ -101,6 +103,12 @@ function RootNavigator() {
 
 function AppContent() {
   usePersistence();
+  setupNotificationHandler();
+
+   if (__DEV__) {
+    console.warn = () => {};
+  }
+
   return (
     <NavigationContainer>
       <StatusBar style="light" />
