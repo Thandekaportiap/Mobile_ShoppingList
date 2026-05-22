@@ -7,8 +7,16 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
 import { Text } from 'react-native';
-import { useFonts, Syne_800ExtraBold } from '@expo-google-fonts/syne';
-import { DMSans_400Regular } from '@expo-google-fonts/dm-sans';
+// import { useFonts, Syne_800ExtraBold } from '@expo-google-fonts/syne';
+// import { DMSans_400Regular } from '@expo-google-fonts/dm-sans';
+import {
+  useFonts,
+  Poppins_400Regular,
+  Poppins_500Medium,
+  Poppins_600SemiBold,
+  Poppins_700Bold,
+  Poppins_800ExtraBold,
+} from '@expo-google-fonts/poppins';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Crypto from 'expo-crypto';
 
@@ -102,11 +110,13 @@ function AppContent() {
 }
 
 export default function App() {
-  const [fontsLoaded] = useFonts({
-    Syne_800ExtraBold,
-    DMSans_400Regular,
-  });
-
+const [fontsLoaded] = useFonts({
+  Poppins_400Regular,
+  Poppins_500Medium,
+  Poppins_600SemiBold,
+  Poppins_700Bold,
+  Poppins_800ExtraBold,
+});
   // Hide splash screen once fonts are ready
   React.useEffect(() => {
     if (fontsLoaded) {

@@ -251,13 +251,13 @@ const styles = StyleSheet.create({
   title: {
     color: Colors.white,
     fontSize: 28,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
     letterSpacing: -0.5,
   },
   subtitle: {
     color: Colors.textSecondary,
     fontSize: 13,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
     marginTop: 2,
   },
   searchBox: {
@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     color: Colors.white,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
     fontSize: 15,
   },
   clearBtn: {
@@ -295,13 +295,13 @@ const styles = StyleSheet.create({
   emptyTitle: {
     color: Colors.white,
     fontSize: 20,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
     marginBottom: 8,
   },
   emptySubtitle: {
     color: Colors.textSecondary,
     fontSize: 14,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
     textAlign: 'center',
     lineHeight: 22,
     marginBottom: 32,
@@ -323,12 +323,12 @@ const styles = StyleSheet.create({
   statNumber: {
     color: Colors.white,
     fontSize: 22,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
   },
   statLabel: {
     color: Colors.textSecondary,
     fontSize: 11,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
     marginTop: 2,
   },
   resultsList: {
@@ -339,7 +339,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     color: Colors.textSecondary,
     fontSize: 11,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
     letterSpacing: 2,
     marginBottom: 10,
   },
@@ -358,19 +358,19 @@ const styles = StyleSheet.create({
   listResultInfo: { flex: 1 },
   listResultName: {
     color: Colors.white,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
     fontSize: 15,
   },
   listResultCount: {
     color: Colors.textSecondary,
     fontSize: 12,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
     marginTop: 2,
   },
   arrow: {
     color: Colors.primary,
     fontSize: 18,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
   },
   itemResult: {
     backgroundColor: Colors.secondaryLight,
@@ -393,7 +393,7 @@ const styles = StyleSheet.create({
   itemSourceName: {
     color: Colors.textSecondary,
     fontSize: 11,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
   },
   itemInfo: { gap: 4 },
   itemRow: {
@@ -404,7 +404,7 @@ const styles = StyleSheet.create({
   itemName: {
     color: Colors.white,
     fontSize: 15,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
   },
   itemNameDone: {
     textDecorationLine: 'line-through',
@@ -419,7 +419,7 @@ const styles = StyleSheet.create({
   doneBadgeText: {
     color: Colors.success,
     fontSize: 11,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
   },
   itemMeta: {
     flexDirection: 'row',
@@ -428,21 +428,21 @@ const styles = StyleSheet.create({
   metaText: {
     color: Colors.textSecondary,
     fontSize: 12,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
   },
   itemNotes: {
     color: Colors.textSecondary,
     fontSize: 11,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
   },
   resultText: {
     color: Colors.white,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
     fontSize: 15,
   },
   highlight: {
     color: Colors.primary,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
     fontSize: 15,
     backgroundColor: 'rgba(255,77,0,0.15)',
   },

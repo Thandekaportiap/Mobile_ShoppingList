@@ -72,13 +72,13 @@ const styles = StyleSheet.create({
   name: {
     color: Colors.white,
     fontSize: 16,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
     marginBottom: 2,
   },
   count: {
     color: Colors.textSecondary,
     fontSize: 12,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
   },
   progressBg: {
     width: 140,
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   },
   badgeText: {
     color: Colors.white,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
     fontSize: 13,
     
   },

@@ -108,12 +108,12 @@ const styles = StyleSheet.create({
   greeting: {
     color: Colors.textSecondary,
     fontSize: 13,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
   },
   title: {
     color: Colors.white,
     fontSize: 28,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
     letterSpacing: -0.5,
   },
   avatar: {
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   },
   avatarText: {
     color: Colors.white,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
     fontSize: 13,
   },
   statsRow: {
@@ -147,12 +147,12 @@ const styles = StyleSheet.create({
   statNumber: {
     color: Colors.white,
     fontSize: 22,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
   },
   statLabel: {
     color: Colors.textSecondary,
     fontSize: 11,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
     marginTop: 2,
   },
   listContent: {
@@ -169,13 +169,13 @@ const styles = StyleSheet.create({
   emptyTitle: {
     color: Colors.white,
     fontSize: 20,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
     marginBottom: 8,
   },
   emptySubtitle: {
     color: Colors.textSecondary,
     fontSize: 14,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
     textAlign: 'center',
     lineHeight: 22,
   },
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
   fabText: {
     color: Colors.white,
     fontSize: 16,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
     letterSpacing: 0.5,
   },
 });

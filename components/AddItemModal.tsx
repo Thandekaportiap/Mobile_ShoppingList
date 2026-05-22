@@ -166,7 +166,6 @@ export default function AddItemModal({
             </View>
 
             {/* Notes */}
-          {/* Notes */}
 <Text style={styles.label}>Notes (optional)</Text>
 <TextInput
   style={[styles.input, styles.notesInput]}
@@ -230,19 +229,19 @@ const styles = StyleSheet.create({
   title: {
     color: Colors.white,
     fontSize: 22,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
     marginBottom: 4,
   },
   subtitle: {
     color: Colors.textSecondary,
     fontSize: 13,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
     marginBottom: 24,
   },
   label: {
     color: Colors.textSecondary,
     fontSize: 11,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
     letterSpacing: 1.5,
     textTransform: 'uppercase',
     marginBottom: 8,
@@ -252,7 +251,7 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     padding: 16,
     color: Colors.white,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
     fontSize: 15,
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.1)',
@@ -265,7 +264,7 @@ const styles = StyleSheet.create({
   errorText: {
     color: Colors.error,
     fontSize: 12,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
     marginBottom: 14,
   },
   notesInput: {
@@ -293,11 +292,11 @@ const styles = StyleSheet.create({
   categoryText: {
     color: Colors.textSecondary,
     fontSize: 12,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
   },
   categoryTextActive: {
     color: Colors.primary,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
   },
   buttons: {
     flexDirection: 'row',
@@ -313,7 +312,7 @@ const styles = StyleSheet.create({
   },
   cancelText: {
     color: Colors.textSecondary,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
     fontSize: 15,
   },
   saveBtn: {
@@ -330,7 +329,7 @@ const styles = StyleSheet.create({
   },
   saveText: {
     color: Colors.white,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold', 
     fontSize: 15,
   },
 });

@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   checkmark: {
     color: Colors.white,
     fontSize: 14,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
   },
   info: {
     flex: 1,
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   name: {
     color: Colors.white,
     fontSize: 15,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
   },
   nameDone: {
     textDecorationLine: 'line-through',
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   tagText: {
     color: Colors.textSecondary,
     fontSize: 11,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
   },
   tagTextAccent: {
     color: Colors.accent,
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   notes: {
     color: Colors.textSecondary,
     fontSize: 11,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
   },
   editBtn: {
     padding: 6,

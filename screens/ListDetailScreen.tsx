@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   },
   backText: {
     color: Colors.primary,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
     fontSize: 15,
   },
   deleteBtn: {
@@ -157,14 +157,14 @@ const styles = StyleSheet.create({
   listName: {
     color: Colors.white,
     fontSize: 26,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
     letterSpacing: -0.5,
     marginBottom: 4,
   },
   listCount: {
     color: Colors.textSecondary,
     fontSize: 13,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
     marginBottom: 14,
   },
   progressBg: {
@@ -193,13 +193,13 @@ const styles = StyleSheet.create({
   emptyTitle: {
     color: Colors.white,
     fontSize: 18,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
     marginBottom: 8,
   },
   emptySubtitle: {
     color: Colors.textSecondary,
     fontSize: 13,
-    fontFamily: 'DMSans_400Regular',
+    fontFamily: 'Poppins_400Regular',
     textAlign: 'center',
     lineHeight: 20,
   },
@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
   fabText: {
     color: Colors.white,
     fontSize: 16,
-    fontFamily: 'Syne_800ExtraBold',
+    fontFamily: 'Poppins_800ExtraBold',
     letterSpacing: 0.5,
   },
 });
