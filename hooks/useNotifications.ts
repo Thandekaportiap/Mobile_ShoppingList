@@ -3,10 +3,12 @@ import * as Device from 'expo-device';
 import { Platform } from 'react-native';
 
 // ✅ Move handler setup into a function
+// ✅ Updated properties
 export function setupNotificationHandler() {
   Notifications.setNotificationHandler({
     handleNotification: async () => ({
-      shouldShowAlert: true,
+      shouldShowBanner: true,
+      shouldShowList: true,
       shouldPlaySound: true,
       shouldSetBadge: false,
     }),
