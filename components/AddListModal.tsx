@@ -9,6 +9,7 @@ import { addList } from '../store/slices/listsSlice';
 import { Colors } from '../constants/colors';
 import { ShoppingList } from '../types';
 import * as Crypto from 'expo-crypto'
+import { showSuccess, showError } from '../hooks/useAlerts';
 
 const EMOJIS = ['🛒','🏠','🎄','💊','🏋️','🎁','🍕','📚','👗','🐾','🧹','💻'];
 
@@ -23,26 +24,27 @@ export default function AddListModal({ visible, onClose }: Props) {
   const [selectedEmoji, setSelectedEmoji] = useState('🛒');
   const [error, setError] = useState('');
 
-  const handleCreate = () => {
-    if (!name.trim()) {
-      setError('Please enter a list name');
-      return;
-    }
+const handleCreate = () => {
+  if (!name.trim()) {
+    showError('Missing Name', 'Please enter a list name'); // ✅ fancy error
+    return;
+  }
 
-    const newList: ShoppingList = {
-      id: Crypto.randomUUID(),
-      name: name.trim(),
-      emoji: selectedEmoji,
-      items: [],
-      createdAt: new Date().toISOString(),
-    };
-
-    dispatch(addList(newList));
-    setName('');
-    setSelectedEmoji('🛒');
-    setError('');
-    onClose();
+  const newList: ShoppingList = {
+    id: Crypto.randomUUID(),
+    name: name.trim(),
+    emoji: selectedEmoji,
+    items: [],
+    createdAt: new Date().toISOString(),
   };
+
+  dispatch(addList(newList));
+  showSuccess('List Created!', `${selectedEmoji} ${name.trim()} is ready`); // ✅ burnt toast
+  setName('');
+  setSelectedEmoji('🛒');
+  setError('');
+  onClose();
+};
 
   const handleClose = () => {
     setName('');

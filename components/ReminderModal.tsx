@@ -9,6 +9,7 @@ import { scheduleReminder, requestNotificationPermission, cancelReminder } from 
 import { useAppDispatch } from '../hooks/useAppDispatch';
 import { setReminder, clearReminder } from '../store/slices/listsSlice';
 import { ShoppingList } from '../types';
+import { showSuccess, showError } from '../hooks/useAlerts';
 
 interface Props {
   visible: boolean;
@@ -26,11 +27,7 @@ const [pickerMode, setPickerMode] = useState<'date' | 'time'>('date');
   const handleSetReminder = async () => {
     const granted = await requestNotificationPermission();
     if (!granted) {
-      Alert.alert(
-        'Permission Required',
-        'Please enable notifications in your device settings to set reminders.',
-        [{ text: 'OK' }]
-      );
+      showError('Permission Required', 'Please enable notifications in settings');
       return;
     }
 
@@ -41,7 +38,7 @@ const [pickerMode, setPickerMode] = useState<'date' | 'time'>('date');
         notificationId: id,
         date: date.toISOString(),
       }));
-      Alert.alert('✅ Reminder Set!', `We'll remind you on ${date.toLocaleString()}`);
+      showSuccess('Reminder Set!', `We'll remind you on ${date.toLocaleString()}`);
       onClose();
     }
   };
@@ -50,7 +47,7 @@ const [pickerMode, setPickerMode] = useState<'date' | 'time'>('date');
     if (list.reminder) {
       await cancelReminder(list.reminder.notificationId);
       dispatch(clearReminder(list.id));
-      Alert.alert('Reminder Cleared', 'Your reminder has been removed.');
+      showSuccess('Reminder Cleared', 'Your reminder has been removed.');
       onClose();
     }
   };

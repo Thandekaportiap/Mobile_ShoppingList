@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// ✅ Replace with this
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRoute, useNavigation } from '@react-navigation/native';
@@ -10,6 +9,8 @@ import { Item } from '../types';
 import ItemCard from '../components/ItemCard';
 import AddItemModal from '../components/AddItemModal';
 import ReminderModal from '../components/ReminderModal';
+import FancyAlertModal from '../components/FancyAlertModal';
+import { showSuccess } from '../hooks/useAlerts';
 
 
 
@@ -26,6 +27,7 @@ export default function ListDetailScreen() {
   const [modalVisible, setModalVisible] = useState(false);
   const [editingItem, setEditingItem] = useState<Item | null>(null);
   const [reminderVisible, setReminderVisible] = useState(false);
+  const [deleteAlertVisible, setDeleteAlertVisible] = useState(false);
 
   if (!list) return null;
 
@@ -34,9 +36,15 @@ export default function ListDetailScreen() {
   const progress = total > 0 ? purchased / total : 0;
 
   const handleDeleteList = () => {
-    dispatch(deleteList(listId));
-    navigation.goBack();
-  };
+  setDeleteAlertVisible(true); // ✅ show fancy alert instead of deleting immediately
+};
+
+  const confirmDelete = () => {
+  dispatch(deleteList(listId));
+  showSuccess('List Deleted!'); // ✅ burnt toast
+  navigation.goBack();
+}; 
+  
 
   const pendingItems = list.items.filter(i => !i.purchased);
   const purchasedItems = list.items.filter(i => i.purchased);
@@ -53,7 +61,7 @@ export default function ListDetailScreen() {
   {/* Both buttons on the right side */}
   <View style={styles.headerButtons}>
     <TouchableOpacity onPress={() => setReminderVisible(true)} style={styles.reminderBtn}>
-      <Text style={styles.reminderText}>{list.reminder ? '⏰' : '🔔'}</Text>
+      <Text style={styles.reminderText}><Text>{list.reminder ? '⏰' : '🔔'}</Text></Text>
     </TouchableOpacity>
     <TouchableOpacity onPress={handleDeleteList} style={styles.deleteBtn}>
       <Text style={styles.deleteText}>🗑</Text>
@@ -65,9 +73,9 @@ export default function ListDetailScreen() {
   onPress={() => setReminderVisible(true)}
   style={styles.reminderBtn}
 >
-  <Text style={styles.reminderText}>
+  {/* <Text style={styles.reminderText}>
     {list.reminder ? '⏰' : '🔔'}
-  </Text>
+  </Text> */}
 </TouchableOpacity>
 
 // Add modal before closing SafeAreaView
@@ -147,6 +155,18 @@ export default function ListDetailScreen() {
           setEditingItem(null);
         }}
       />
+
+      <FancyAlertModal
+  visible={deleteAlertVisible}
+  type="delete"
+  title="Delete List?"
+  message={`Are you sure you want to delete "${list.name}"? This cannot be undone.`}
+  confirmText="Delete"
+  cancelText="Keep it"
+  onConfirm={confirmDelete}
+  onCancel={() => setDeleteAlertVisible(false)}
+/>
+
     </SafeAreaView>
   );
 }

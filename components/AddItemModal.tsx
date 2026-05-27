@@ -9,6 +9,7 @@ import { addItem, editItem } from '../store/slices/listsSlice';
 import { Colors } from '../constants/colors';
 import { Item } from '../types';
 import * as Crypto from 'expo-crypto'
+import { showSuccess, showError } from '../hooks/useAlerts';
 
 const CATEGORIES = [
   '🥦 Produce', '🥛 Dairy', '🥩 Meat', '🍞 Bakery',
@@ -53,14 +54,13 @@ export default function AddItemModal({
     setErrors({});
   };
 
-  const validate = () => {
-    if (!name.trim()) {
-      setErrors({ name: 'Item name is required' });
-      return false;
-    }
-    return true;
-  };
-
+ const validate = () => {
+  if (!name.trim()) {
+    showError('Missing Name', 'Please enter an item name'); 
+    return false;
+  }
+  return true;
+};
   const handleSave = () => {
     if (!validate()) return;
 
@@ -86,6 +86,10 @@ export default function AddItemModal({
         createdAt: new Date().toISOString(),
       };
       dispatch(addItem({ listId, item: newItem }));
+showSuccess(
+  editingItem ? 'Item Updated!' : 'Item Added!',
+  name.trim()
+);
     }
 
     resetForm();
