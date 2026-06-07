@@ -1,4 +1,4 @@
-<img src="https://socialify.git.ci/Thandekaportiap/ShopListApp/image?font=KoHo&language=1&name=1&owner=1&theme=Dark" alt="ShopListApp" width="640" height="320" />
+<<img src="https://socialify.git.ci/Thandekaportiap/Mobile_ShoppingList/image?language=1&owner=1&name=1&stargazers=1&theme=Light" alt="Mobile_ShoppingList" width="640" height="320" /> 
 
 # 🛒 ShopList App
 
