@@ -1,24 +1,36 @@
 import React, { useState } from 'react';
-// ✅ Replace with this
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, TextInput, } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-import { useAppSelector } from '../hooks/useAppDispatch';
+import { useAppSelector, useAppDispatch } from '../hooks/useAppDispatch';
 import { Colors } from '../constants/colors';
 import { ShoppingList } from '../types';
 import ListCard from '../components/ListCard';
 import AddListModal from '../components/AddListModal';
+import NameModal from '../components/NameModal';
+
 
 export default function HomeScreen() {
   const navigation = useNavigation<any>();
   const lists = useAppSelector(state => state.lists);
   const [modalVisible, setModalVisible] = useState(false);
+  const userName = useAppSelector(state => state.user.name);
 
   const totalItems = lists.reduce((acc, l) => acc + l.items.length, 0);
   const pendingItems = lists.reduce(
     (acc, l) => acc + l.items.filter(i => !i.purchased).length, 0
   );
+
+  // Get initials from name
+const getInitials = (name: string) => {
+  return name
+    .split(' ')
+    .map(word => word[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2);
+};
 
   return (
     <SafeAreaView style={styles.container}>
@@ -27,12 +39,16 @@ export default function HomeScreen() {
       {/* Header */}
       <View style={styles.header}>
         <View>
-          <Text style={styles.greeting}>Good day! 👋</Text>
+          <Text style={styles.greeting}>
+  {`Good day, ${userName.split(' ')[0]}! 👋`}
+</Text>
           <Text style={styles.title}>My Lists</Text>
         </View>
-        <View style={styles.avatar}>
-          <Text style={styles.avatarText}>TP</Text>
-        </View>
+     <View style={styles.avatar}>
+  <Text style={styles.avatarText}>
+    {getInitials(userName)}
+  </Text>
+</View>
       </View>
 
       {/* Stats Row */}
@@ -88,7 +104,9 @@ export default function HomeScreen() {
         visible={modalVisible}
         onClose={() => setModalVisible(false)}
       />
+      <NameModal visible={!userName} />
     </SafeAreaView>
+    
   );
 }
 
